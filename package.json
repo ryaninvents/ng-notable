@@ -41,7 +41,6 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "@types/pouchdb": "^6.3.2",
     "babel-core": "^6.26.3",
     "codelyzer": "~4.2.1",
     "gh-pages": "^1.2.0",

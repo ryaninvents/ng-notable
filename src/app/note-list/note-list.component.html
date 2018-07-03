@@ -1,0 +1,8 @@
+<div class="list-group">
+  <app-note-list-item
+    *ngFor="let note of notes"
+    title="{{note.title}}"
+    lastUpdated="{{note.lastUpdated}}"
+    preview="{{note.excerpt}}"
+  ></app-note-list-item>
+</div>
