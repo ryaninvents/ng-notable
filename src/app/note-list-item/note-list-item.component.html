@@ -1,6 +1,6 @@
 <a class="list-group-item list-group-item-action">
   <div class="d-flex w-100 justify-content-between">
-    <h5>{{ title }}</h5>
+    <h5><a role="button" (click)="handleTitleClick()">{{ title }}</a></h5>
     <small>{{ lastUpdated | date }}</small>
   </div>
   <p class="mb-1">{{ preview }}</p>
