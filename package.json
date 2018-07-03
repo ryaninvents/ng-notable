@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "gh-pages -d dist/ng-notable"
+    "deploy": "gh-pages --silent -d dist/ng-notable"
   },
   "private": true,
   "dependencies": {
