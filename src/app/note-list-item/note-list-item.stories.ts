@@ -17,6 +17,10 @@ const MockNotableService = (() => {
     fetchNote(id: String): Observable<NoteMetadata> {
       return $of(MOCK_DATA.notes[0]);
     }
+
+    fetchNotes(): Observable<NoteMetadata> {
+      return from(MOCK_DATA.notes);
+    }
   }
 
   return NotableService;

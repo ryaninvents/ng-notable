@@ -5,6 +5,18 @@
       "title": "Gettysburg Address",
       "excerpt": "Four score and seven years ago...",
       "lastUpdated": "1863-11-19T04:56:02.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Kennedy Inauguration",
+      "excerpt": "And so, my fellow Americans: ask not what your country can do for you–ask what you can do for your country...",
+      "lastUpdated": "1961-01-20T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Reagan at Brandenburg Gate",
+      "excerpt": "We believe that freedom and security go together, that the advance of human liberty can only strengthen the cause of world peace...",
+      "lastUpdated": "1987-06-12T00:00:00.000Z"
     }
   ]
 }

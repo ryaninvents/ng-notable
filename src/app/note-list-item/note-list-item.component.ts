@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'app-note-list-item',
+  selector: '[note-list-item]',
   templateUrl: './note-list-item.component.html',
   styles: [`
   a[role=button] {
@@ -10,6 +10,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   }`],
 })
 export class NoteListItemComponent implements OnInit {
+  @HostBinding('class') className: String = 'list-group-item list-group-item-action';
 
   @Input() title: String;
   @Input() lastUpdated: Date;

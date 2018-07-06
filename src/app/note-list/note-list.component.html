@@ -1,10 +1,11 @@
 <div class="list-group" *ngIf="notes.length > 0">
-  <app-note-list-item
+  <a note-list-item
     *ngFor="let note of notes"
+    role="button"
     title="{{note.title}}"
     lastUpdated="{{note.lastUpdated}}"
     preview="{{note.excerpt}}"
-  ></app-note-list-item>
+  ></a>
 </div>
 <h3 *ngIf="notes.length === 0" class="text-center text-muted">
   <fa-layers class="fa-fw">
