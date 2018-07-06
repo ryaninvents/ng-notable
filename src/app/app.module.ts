@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { NoteListItemComponent } from './note-list-item/note-list-item.component';
@@ -14,7 +15,8 @@ import { NoteListComponent } from './note-list/note-list.component';
     NoteListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

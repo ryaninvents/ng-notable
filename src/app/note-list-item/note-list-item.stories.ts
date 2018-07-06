@@ -1,7 +1,8 @@
 import { storiesOf } from '@storybook/angular';
 import { Injectable } from '@angular/core';
-import { Observable, of as $of } from 'rxjs';
+import { Observable, of as $of, from, empty } from 'rxjs';
 import {action} from '@storybook/addon-actions';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {NoteListItemComponent} from './note-list-item.component';
 import {NoteListComponent} from '../note-list/note-list.component';
@@ -21,6 +22,32 @@ const MockNotableService = (() => {
   return NotableService;
 })();
 
+const moduleWithMockData = (mockData) => ({
+  declarations: [NoteListItemComponent],
+  imports: [FontAwesomeModule],
+  providers: [
+    {
+      provide: NotableService,
+      useClass: (() => {
+        @Injectable({providedIn: 'root'})
+        class MockNotableService {
+          fetchNote(id: String): Observable<NoteMetadata> {
+            const matchingNote = mockData.notes.find((note) => note.id === id);
+            if (!matchingNote) return empty();
+            return $of(matchingNote);
+          }
+
+          fetchNotes(): Observable<NoteMetadata> {
+            return from(mockData.notes);
+          }
+        }
+      
+        return MockNotableService;
+      })(),
+    }
+  ]
+})
+
 storiesOf('note-list/item', module)
   .add('default', () => ({
     component: NoteListItemComponent,
@@ -36,10 +63,11 @@ storiesOf('note-list/item', module)
 storiesOf('note-list', module)
   .add('with mock data', () => ({
     component: NoteListComponent,
-    moduleMetadata: {
-      declarations: [NoteListItemComponent],
-      providers: [
-        {provide: NotableService, useClass: MockNotableService},
-      ],
-    }
+    moduleMetadata: moduleWithMockData(MOCK_DATA),
+  }))
+  .add('with no notes', () => ({
+    component: NoteListComponent,
+    moduleMetadata: moduleWithMockData({
+      notes: [],
+    })
   }))

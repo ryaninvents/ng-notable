@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Observable, from, empty } from 'rxjs';
 const PouchDB = require('pouchdb').default;
 
 import {NoteMetadata} from './types';
@@ -16,5 +16,9 @@ export class NotableService {
 
   fetchNote(id: String): Observable<NoteMetadata> {
     return from(this.db.get(id));
+  }
+
+  fetchNotes(): Observable<NoteMetadata> {
+    return empty();
   }
 }
