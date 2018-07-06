@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NoteListItemComponent } from './note-list-item/note-list-item.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteListComponent } from './note-list/note-list.component';
+import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 
 export const declarations = [
   AppComponent,
   NoteListItemComponent,
   NavbarComponent,
-  NoteListComponent
+  NoteListComponent,
+  MarkdownEditorComponent,
 ];
 
 @NgModule({
@@ -21,6 +23,6 @@ export const declarations = [
     FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
