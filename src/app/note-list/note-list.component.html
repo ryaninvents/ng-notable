@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group" *ngIf="notes.length > 0">
   <app-note-list-item
     *ngFor="let note of notes"
     title="{{note.title}}"
@@ -6,3 +6,9 @@
     preview="{{note.excerpt}}"
   ></app-note-list-item>
 </div>
+<h3 *ngIf="notes.length === 0" class="text-center text-muted">
+  <fa-layers class="fa-fw">
+    <fa-icon [icon]="faFile"></fa-icon>
+    <fa-icon [icon]="faAsterisk" class="text-info" transform="shrink-6 right-7 down-6"></fa-icon>
+  </fa-layers> No notes
+</h3>

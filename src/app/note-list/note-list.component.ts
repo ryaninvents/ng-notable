@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faFile } from '@fortawesome/free-regular-svg-icons';
+import { faAsterisk } from '@fortawesome/free-solid-svg-icons';
 import {NotableService} from '../notable.service';
 
 @Component({
@@ -9,6 +11,9 @@ import {NotableService} from '../notable.service';
 export class NoteListComponent implements OnInit {
   title = null;
   notes = [];
+  
+  faFile = faFile;
+  faAsterisk = faAsterisk;
 
   constructor(private notesService: NotableService) {}
 
