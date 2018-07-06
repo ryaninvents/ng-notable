@@ -41,6 +41,7 @@ jobs:
           name: build and deploy
           command: |
             npm install
+            node util.js replacePath
             git config --global user.name 'Circle CI'
             git config --global user.email 'circleci@example.com'
             npm run build -- --deploy-url /ng-notable/
