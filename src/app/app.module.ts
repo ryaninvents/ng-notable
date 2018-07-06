@@ -7,6 +7,7 @@ import { NoteListItemComponent } from './note-list-item/note-list-item.component
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { NotableLandingPageComponent } from './notable-landing-page/notable-landing-page.component';
 
 export const declarations = [
   AppComponent,
@@ -14,6 +15,7 @@ export const declarations = [
   NavbarComponent,
   NoteListComponent,
   MarkdownEditorComponent,
+  NotableLandingPageComponent,
 ];
 
 @NgModule({
