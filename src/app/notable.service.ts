@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, from, empty } from 'rxjs';
-const PouchDB = require('pouchdb').default;
+import PouchDB from 'pouchdb';
 
 import {NoteMetadata} from './types';
 
