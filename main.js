@@ -258,7 +258,7 @@ var NotableService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<a class=\"list-group-item list-group-item-action\">\n  <div class=\"d-flex w-100 justify-content-between\">\n    <h5><a role=\"button\" (click)=\"handleTitleClick()\">{{ title }}</a></h5>\n    <small>{{ lastUpdated | date }}</small>\n  </div>\n  <p class=\"mb-1\">{{ preview }}</p>\n</a>\n"
+module.exports = "<div class=\"d-flex w-100 justify-content-between\">\n  <h5><a role=\"button\" (click)=\"handleTitleClick()\">{{ title }}</a></h5>\n  <small>{{ lastUpdated | date }}</small>\n</div>\n<p class=\"mb-1\">{{ preview }}</p>\n"
 
 /***/ }),
 
@@ -285,6 +285,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var NoteListItemComponent = /** @class */ (function () {
     function NoteListItemComponent() {
+        this.className = 'list-group-item list-group-item-action';
         this.onTitleClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     NoteListItemComponent.prototype.ngOnInit = function () {
@@ -292,6 +293,10 @@ var NoteListItemComponent = /** @class */ (function () {
     NoteListItemComponent.prototype.handleTitleClick = function () {
         this.onTitleClick.emit();
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
+        __metadata("design:type", String)
+    ], NoteListItemComponent.prototype, "className", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
@@ -310,7 +315,7 @@ var NoteListItemComponent = /** @class */ (function () {
     ], NoteListItemComponent.prototype, "onTitleClick", void 0);
     NoteListItemComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-note-list-item',
+            selector: '[note-list-item]',
             template: __webpack_require__(/*! ./note-list-item.component.html */ "./src/app/note-list-item/note-list-item.component.html"),
             styles: ["\n  a[role=button] {\n    color: var(--primary) !important;\n    cursor: pointer;\n  }"],
         })
@@ -340,7 +345,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-group\" *ngIf=\"notes.length > 0\">\n  <app-note-list-item\n    *ngFor=\"let note of notes\"\n    title=\"{{note.title}}\"\n    lastUpdated=\"{{note.lastUpdated}}\"\n    preview=\"{{note.excerpt}}\"\n  ></app-note-list-item>\n</div>\n<h3 *ngIf=\"notes.length === 0\" class=\"text-center text-muted\">\n  <fa-layers class=\"fa-fw\">\n    <fa-icon [icon]=\"faFile\"></fa-icon>\n    <fa-icon [icon]=\"faAsterisk\" class=\"text-info\" transform=\"shrink-6 right-7 down-6\"></fa-icon>\n  </fa-layers> No notes\n</h3>"
+module.exports = "<div class=\"list-group\" *ngIf=\"notes.length > 0\">\n  <a note-list-item\n    *ngFor=\"let note of notes\"\n    role=\"button\"\n    title=\"{{note.title}}\"\n    lastUpdated=\"{{note.lastUpdated}}\"\n    preview=\"{{note.excerpt}}\"\n  ></a>\n</div>\n<h3 *ngIf=\"notes.length === 0\" class=\"text-center text-muted\">\n  <fa-layers class=\"fa-fw\">\n    <fa-icon [icon]=\"faFile\"></fa-icon>\n    <fa-icon [icon]=\"faAsterisk\" class=\"text-info\" transform=\"shrink-6 right-7 down-6\"></fa-icon>\n  </fa-layers> No notes\n</h3>"
 
 /***/ }),
 
@@ -381,10 +386,9 @@ var NoteListComponent = /** @class */ (function () {
     }
     NoteListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.notesService.fetchNote("1")
+        this.notesService.fetchNotes()
             .subscribe(function (note) {
-            _this.title = note.title;
-            _this.notes = [note];
+            _this.notes.push(note);
         });
     };
     NoteListComponent = __decorate([
