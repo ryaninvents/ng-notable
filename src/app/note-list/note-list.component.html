@@ -2,6 +2,7 @@
   <a note-list-item
     *ngFor="let note of notes"
     role="button"
+    id="{{note.id}}"
     title="{{note.title}}"
     lastUpdated="{{note.lastUpdated}}"
     preview="{{note.excerpt}}"

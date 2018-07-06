@@ -1,5 +1,5 @@
 <div class="d-flex w-100 justify-content-between align-items-baseline">
-  <h5><a role="button" class="note-title" (click)="handleTitleClick()">{{ title }}</a></h5>
+  <h5><a role="button" class="note-title" href="#/note/{{id}}">{{ title }}</a></h5>
   <small>{{ lastUpdated | date }}</small>
 </div>
 <p class="note-preview">{{ preview }}</p>

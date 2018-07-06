@@ -11,6 +11,7 @@ export class NoteListItemComponent implements OnInit {
   @Input() title: String;
   @Input() lastUpdated: Date;
   @Input() preview: String;
+  @Input() id: String;
 
   @Output() onTitleClick = new EventEmitter();
 
