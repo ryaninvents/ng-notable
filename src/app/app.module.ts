@@ -7,13 +7,15 @@ import { NoteListItemComponent } from './note-list-item/note-list-item.component
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteListComponent } from './note-list/note-list.component';
 
+export const declarations = [
+  AppComponent,
+  NoteListItemComponent,
+  NavbarComponent,
+  NoteListComponent
+];
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    NoteListItemComponent,
-    NavbarComponent,
-    NoteListComponent
-  ],
+  declarations,
   imports: [
     BrowserModule,
     FontAwesomeModule,
