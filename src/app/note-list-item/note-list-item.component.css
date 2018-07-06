@@ -1,0 +1,22 @@
+a[role=button] {
+  color: var(--primary) !important;
+  cursor: pointer;
+}
+
+.note-preview {
+  margin-bottom: 0;
+}
+
+.note-title:empty, .note-preview:empty {
+  opacity: 0.6;
+}
+.note-title:empty::before {
+  content: 'Untitled note';
+  display: inline;
+  vertical-align: baseline;
+}
+
+.note-preview:empty::before {
+  display: block;
+  content: 'No contents';
+}

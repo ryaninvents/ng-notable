@@ -18,9 +18,9 @@ export class NoteListComponent implements OnInit {
   constructor(private notesService: NotableService) {}
 
   ngOnInit() {
-    this.notesService.fetchNotes()
-      .subscribe((note) => {
-        this.notes.push(note);
+    this.notesService.observeNotes()
+      .subscribe((notes) => {
+        this.notes = notes;
       });
   }
 

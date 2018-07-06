@@ -14,12 +14,12 @@ const MOCK_DATA = require('../note-list/mock-data.json');
 const MockNotableService = (() => {
   @Injectable({providedIn: 'root'})
   class NotableService {
-    fetchNote(id: String): Observable<NoteMetadata> {
-      return $of(MOCK_DATA.notes[0]);
+    fetchNote(id: String): Promise<NoteMetadata> {
+      return Promise.resolve(MOCK_DATA.notes[0]);
     }
 
-    fetchNotes(): Observable<NoteMetadata> {
-      return from(MOCK_DATA.notes);
+    observeNotes(): Observable<Array<NoteMetadata>> {
+      return $of(MOCK_DATA.notes);
     }
   }
 
@@ -41,8 +41,12 @@ const moduleWithMockData = (mockData) => ({
             return $of(matchingNote);
           }
 
-          fetchNotes(): Observable<NoteMetadata> {
-            return from(mockData.notes);
+          fetchNotes(): Promise<Array<NoteMetadata>> {
+            return Promise.resolve(mockData.notes);
+          }
+
+          observeNotes(): Observable<Array<NoteMetadata>> {
+            return from(this.fetchNotes());
           }
         }
       

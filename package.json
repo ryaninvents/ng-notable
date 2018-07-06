@@ -29,6 +29,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.1.0",
     "@fortawesome/free-solid-svg-icons": "^5.1.0",
     "core-js": "^2.5.4",
+    "eyed": "^1.0.2",
     "pouchdb": "^7.0.0",
     "prosemirror": "^0.11.1",
     "prosemirror-example-setup": "^1.0.1",

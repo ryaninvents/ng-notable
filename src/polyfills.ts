@@ -14,6 +14,9 @@
  * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 
+/** Required in order to load `Buffer` */
+import './polyfill-global';
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
@@ -78,5 +81,6 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+import {Buffer} from 'buffer';
 
-(window as any).global = window;
+(window as any).Buffer = Buffer;

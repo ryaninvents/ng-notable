@@ -1,5 +1,5 @@
-<div class="d-flex w-100 justify-content-between">
-  <h5><a role="button" (click)="handleTitleClick()">{{ title }}</a></h5>
+<div class="d-flex w-100 justify-content-between align-items-baseline">
+  <h5><a role="button" class="note-title" (click)="handleTitleClick()">{{ title }}</a></h5>
   <small>{{ lastUpdated | date }}</small>
 </div>
-<p class="mb-1">{{ preview }}</p>
+<p class="note-preview">{{ preview }}</p>
