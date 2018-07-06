@@ -45,7 +45,9 @@ export class NotableService {
   observeNotes(): Observable<Array<NoteMetadata>> {
     return merge(
       from(this.fetchNotes()),
-      fromEvent(this.db.changes(), 'change')
+      
+      // TODO: plug this memory leak
+      fromEvent(this.db.changes({live: true}), 'change')
         .pipe(flatMap(() => from(this.fetchNotes())))
     );
   }
