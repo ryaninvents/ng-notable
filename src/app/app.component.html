@@ -1,10 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
-<div class="row w-100 m-0">
-  <div class="col-md-3">
-    <app-note-list></app-note-list>
-  </div>
-  <div class="col-md-9">
-    <app-markdown-editor></app-markdown-editor>
+<div class="app-container d-flex flex-column">
+  <app-navbar></app-navbar>
+  <div class="row w-100 m-0">
+    <div class="col-md-3 position-relative d-flex flex-column h-100">
+      <div class="flex-grow-1">
+        <app-note-list></app-note-list>
+      </div>
+      <div class="flex-grow-0 py-2">
+        <button class="btn btn-success btn-block">
+          New note
+        </button>
+      </div>
+    </div>
+    <div class="col-md-9 pt-2">
+      <app-markdown-editor></app-markdown-editor>
+    </div>
   </div>
 </div>
