@@ -10,10 +10,11 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { NotableLandingPageComponent } from './notable-landing-page/notable-landing-page.component';
 import { NewNoteComponent } from './new-note/new-note.component';
+import { NoteViewComponent } from './note-view/note-view.component';
 
 const appRoutes: Routes = [
   {path: '', component: NotableLandingPageComponent},
-  {path: 'note/:id', component: MarkdownEditorComponent},
+  {path: 'note/:id', component: NoteViewComponent},
 ];
 
 export const declarations = [
@@ -24,6 +25,7 @@ export const declarations = [
   MarkdownEditorComponent,
   NotableLandingPageComponent,
   NewNoteComponent,
+  NoteViewComponent,
 ];
 
 @NgModule({

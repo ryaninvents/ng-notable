@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@an
 import { ProseMirrorView } from './ProsemirrorView';
 
 @Component({
-  selector: 'app-markdown-editor',
+  selector: 'markdown-editor',
   templateUrl: './markdown-editor.component.html',
   styleUrls: ['./markdown-editor.component.css', '../../../node_modules/prosemirror-view/style/prosemirror.css'],
   encapsulation: ViewEncapsulation.None,
@@ -14,7 +14,7 @@ export class MarkdownEditorComponent {
   constructor() { }
 
   ngAfterViewInit() {
-    this.view = new ProseMirrorView(this.ref.nativeElement, 'Hello **world**');
+    this.view = new ProseMirrorView(this.ref.nativeElement, '## Work in progress\n\nThis app does not save yet!');
     this.view.focus();
   }
 
