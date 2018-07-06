@@ -44,7 +44,7 @@ jobs:
             git config --global user.name 'Circle CI'
             git config --global user.email 'circleci@example.com'
             npm run build -- --deploy-url /ng-notable/
-            npm run -s deploy -- --repo https://${GH_TOKEN}@github.com/ryaninvents/ng-notable.git
+            npm run -s deploy -- --repo https://${GH_TOKEN}@github.com/ryaninvents/ng-notable.git --message 'Publish app [ci skip]'
 
 
 
