@@ -2774,29 +2774,31 @@ var NotableService = /** @class */ (function () {
     };
     NotableService.prototype.saveContent = function (content, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var firstLine, title, oldDoc, newDoc;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var _a, firstLine, rest, title, previewSource, oldDoc, newDoc;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
-                        firstLine = content.split('\n')[0];
+                        _a = content.split('\n'), firstLine = _a[0], rest = _a.slice(1);
                         title = '';
+                        previewSource = content;
                         if (firstLine.charAt(0) === '#') {
                             // Document begins with a header; use this as title.
                             title = firstLine.replace(/^#+\s*/, '');
+                            previewSource = rest.join('\n');
                         }
                         return [4 /*yield*/, this.db.get(id)];
                     case 1:
-                        oldDoc = _a.sent();
+                        oldDoc = _b.sent();
                         newDoc = __assign({}, oldDoc, { title: title, content: content });
-                        if (content.length < 30) {
-                            newDoc.preview = content;
+                        if (previewSource.length < 30) {
+                            newDoc.preview = previewSource;
                         }
                         else {
-                            newDoc.preview = content.slice(0, 27).trim() + '...';
+                            newDoc.preview = previewSource.slice(0, 27).trim() + '...';
                         }
                         return [4 /*yield*/, this.db.put(newDoc)];
                     case 2:
-                        _a.sent();
+                        _b.sent();
                         return [2 /*return*/];
                 }
             });
