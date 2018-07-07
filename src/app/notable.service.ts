@@ -63,4 +63,20 @@ export class NotableService {
     await this.db.put(serialize(meta));
     return meta;
   }
+
+  async saveContent(content: String, id: String): Promise<void> {
+    const oldDoc = await this.db.get(id);
+    const newDoc = {...oldDoc, content};
+    if (content.length < 30) {
+      newDoc.preview = content;
+    } else {
+      newDoc.preview = content.slice(0, 27).trim() + '...';
+    }
+    await this.db.put(newDoc);
+  }
+
+  async fetchContent(id: String): Promise<String> {
+    const doc = await this.db.get(id);
+    return doc.content || '';
+  }
 }

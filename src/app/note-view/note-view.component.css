@@ -1,0 +1,17 @@
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+h2 > small {
+  font-size: 0.5em;
+  animation: fadeout 5s;
+  opacity: 0;
+}

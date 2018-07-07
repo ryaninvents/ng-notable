@@ -1,2 +1,19 @@
-<h1>Note</h1>
-<markdown-editor></markdown-editor>
+<h2 title="{{noteId}}">
+  Untitled note
+  <fa-icon
+    *ngIf="changesPending"
+    title="Document will auto-save when you stop typing"
+    
+    [icon]="faCircle"
+    class="text-info"
+    transform="shrink-8 left-4"
+  ></fa-icon>
+  <small class="text-muted" *ngIf="!changesPending && hasEverChanged">
+    Changes saved
+  </small>
+</h2>
+<markdown-editor
+  (changes)="saveContent($event)"
+  (changesPending)="setChangesPending($event)"
+  [contentUpdates]="contentUpdates"
+></markdown-editor>
