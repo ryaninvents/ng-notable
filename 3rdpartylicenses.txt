@@ -170,6 +170,10 @@ MIT
 MIT
 MIT
 
+@angular/router@6.0.7
+MIT
+MIT
+
 @fortawesome/angular-fontawesome@0.1.1
 MIT
 MIT
