@@ -65,18 +65,20 @@ export class NotableService {
   }
 
   async saveContent(content: String, id: String): Promise<void> {
-    const [firstLine] = content.split('\n');
+    const [firstLine, ...rest] = content.split('\n');
     let title = '';
+    let previewSource = content;
     if (firstLine.charAt(0) === '#') {
       // Document begins with a header; use this as title.
       title = firstLine.replace(/^#+\s*/, '');
+      previewSource = rest.join('\n');
     }
     const oldDoc = await this.db.get(id);
     const newDoc = {...oldDoc, title, content};
-    if (content.length < 30) {
-      newDoc.preview = content;
+    if (previewSource.length < 30) {
+      newDoc.preview = previewSource;
     } else {
-      newDoc.preview = content.slice(0, 27).trim() + '...';
+      newDoc.preview = previewSource.slice(0, 27).trim() + '...';
     }
     await this.db.put(newDoc);
   }
